@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Validation</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        margin-bottom: 10px;
+        font-size: 40px;
+      }
+      .form-container {
+        width: 500px;
+        position: relative;
+      }
+      input[type="email"] {
+        width: 100%;
+        padding: 20px;
+        border: none;
+        outline: none;
+        background-color: #111;
+        border-radius: 5px;
+        caret-color: white;
+        color: #777;
+        font-size: 20px;
+        transition: 0.5s;
+      }
+      input[type="email"]:hover,
+      input[type="email"].focus {
+        box-shadow: 0 0 40px black;
+      }
+      .message {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+      }
+      .message.valid {
+        background-color: green;
+      }
+      .message.invalid {
+        background-color: red;
+      }
+    </style>
+    <body>
+      <form>
+        <h1>Email Validation</h1>
+        <div class="form-container">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            oninput="validation()"
+          />
+          <span class="message"></span>
+        </div>
+      </form>
+      <script type="text/javascript">
+
+        const message = document.querySelector(".message");
+        const pattern = /\w+@\w+.com/g;
+        
+        const validation = () => {
+          const email = document.querySelector("input").value;
+          if (pattern.test(email)) {
+            message.classList.remove("invalid");
+            message.classList.add("valid");
+            console.log("valid")
+          } else if (email === "") {
+            message.classList.remove("valid", "invalid");
+          } else {
+            message.classList.remove("valid");
+            message.classList.add("invalid");
+            console.log("invalid")
+          }
+        }
+
+        // const validMails = "https://www.elzero-academy.com http://elzero.com elzero.com";
+        // const validMail = "abdullah93.zayed@gamil.domaincom";
+        // const regExValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ig;
+        // const string = "Hello my computer i am abdullah your owner";
+        // const regEx = /(nir|ir)$/ig;
+        // const matchedMails = regEx.test(string);
+        // const matchedMails = regExValidEmail.test(validMail);
+        // console.log(matchedMails)
+
+        // let ip = "2001:db8:3333:4444:5555:6666:7777:8884";
+        // const patter = /^\d{4}:[a-z]{2}\d(:\d{4}){6}/g;
+        // console.log(ip.match(patter));
+
+        // let specialNames = "Os10O OsO Os100O Osa100O Os1000 Os100m";
+        // const regEx = /Os\d*O/g;
+        // console.log(specialNames.match(regEx));
+
+        // let phone = "+(995)-123 (4567)";
+        // const regEx = /^[+]\(\d{3}\)-\d{3}\s\(\d{4}\)/g;
+        // console.log(phone.match(regEx));
+        // let date1 = "25/10/1982";
+        // let date2 = "25 - 10 - 1982";
+        // let date3 = "25 10 1982";
+        // let date4 = "25 10 82";
+        // const regEx = /^\d{2}(\/|\s)?(\d{2}|-)?(\/|\d{2}|\s)?(\d{4}|\s|\d{2})?(-\s\d{4})?/g;
+        // console.log(date1.match(regEx));
+        // console.log(date2.match(regEx));
+        // console.log(date3.match(regEx));
+        // console.log(date4.match(regEx));
+      </script>
+    </body>
+  </head>
+</html>
+!
